@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Crime;
 use App\Http\Controllers\CrimeController;
+use App\Http\Controllers\EmergencyContactsController;
 
 
 /*
@@ -15,26 +16,22 @@ use App\Http\Controllers\CrimeController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+
 
 Route::get('/', function () {
-     return view('welcome', [
-        'murder'=>Crime::Where([['type','=', "murder"], ['status', '=', 'approved']])->count(),
-        'robbery'=>Crime::Where([['type','=', "robbery"],['user_id', '=', 'approved']])->count(),
-        'sexual_assault'=> Crime::Where([['type','=',"sexual assault"],['status', '=', 'approved']])->count(),
-        'other'=> Crime::Where([['type','=', "other"],['status', '=', 'approved']])->count(),
-     ]);
+     return view('index');
      
-});
+})->name('home');
+Route::get('/emergency-contacts', [EmergencyContactsController::class, 'index'])->name('emergencyContact.index');
 
-Route::get('/dashboard', function () {
+Route::get('/statistics', function () {
      return view('dashboard', [
         'murder'=>Crime::Where([['type','=', "murder"], ['status', '=', 'approved']])->count(),
         'robbery'=>Crime::Where([['type','=', "robbery"],['user_id', '=', 'approved']])->count(),
         'sexual_assault'=> Crime::Where([['type','=',"sexual assault"],['status', '=', 'approved']])->count(),
         'other'=> Crime::Where([['type','=', "other"],['status', '=', 'approved']])->count(),
      ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [CrimeController::class, 'admin'])->name('crime.admin');
@@ -52,3 +49,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+*/

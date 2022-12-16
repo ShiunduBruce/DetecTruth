@@ -1,10 +1,9 @@
-@extends('layout')
+@extends('layout1')
 @section('content')
  <!-- Page Wrapper -->
  <div id="wrapper">
 
 <!-- Sidebar -->
-@include('sidebar')
 <!-- End of Sidebar -->
 
 <!-- Content Wrapper -->
@@ -110,21 +109,21 @@
                                     role="button" aria-expanded="true" aria-controls="collapseCardExample">
                                     <h6 class="m-0 font-weight-bold text-primary">{{$report->type}}</h6>
                                     <p class="m-0 text-info">Place: {{$report->location->name}}</p>
-                                    <p class="m-0 ">Reported time: {{$report->created_at}}</p>
+                                    <p class="m-0 font-weight-bold text-gray-800 ">Reported time: {{$report->created_at}}</p>
                                 </div>
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="collapseCardExample">
-                                    <div class="card-body">
+                                    <div class="card-body text-gray-800">
                                         {{$report->description}}
                                     </div>
                                 </div>
                                 <div href="#" class="d-block card-header py-3" data-toggle="collapse"
                                      aria-expanded="true" aria-controls="collapseCardExample">
                                     <h6 class="float-left"><a href="{{route('crime.edit', $report)}}" class="btn btn-warning">
-                                        <i>Edit</i>
+                                        <i class="text-warning">Edit</i>
                                     </a></h6>
                                     <h6 class="float-right"><a href="{{route('crime.delete', $report)}}" class="btn btn-danger btn">
-                                        <i class="fas fa-check">Delete</i>
+                                        <i class="text-danger">Delete</i>
                                     </a></h6>
 
                                 </div>
@@ -141,7 +140,6 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    @include('footer')
     <!-- End of Footer -->
 
 </div>

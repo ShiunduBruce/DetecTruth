@@ -1,10 +1,9 @@
-@extends('layout')
+@extends('layout1')
 @section('content')
  <!-- Page Wrapper -->
  <div id="wrapper">
 
 <!-- Sidebar -->
-@include('sidebar')
 <!-- End of Sidebar -->
 
 <!-- Content Wrapper -->
@@ -80,7 +79,6 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    @include('footer')
     <!-- End of Footer -->
 
 </div>

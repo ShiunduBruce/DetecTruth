@@ -1,10 +1,9 @@
-@extends('layout')
+@extends('layout1')
 @section('content')
  <!-- Page Wrapper -->
  <div id="wrapper">
 
 <!-- Sidebar -->
-@include('sidebar')
 <!-- End of Sidebar -->
 
 <!-- Content Wrapper -->
@@ -115,7 +114,7 @@
                                 
                                 <!-- Card Content - Collapse -->
                                 <div class="collapse show" id="collapseCardExample">
-                                    <div class="card-body">
+                                    <div class="card-body text-gray-800">
                                         {{$report->description}}
                                     </div>
                                 </div>
@@ -125,7 +124,7 @@
                                         <form action="{{route('crime.approve', $report)}}" class="dropdown-item" method="post">
                                             @csrf    
                                                 <button type="submit"  class="btn btn-success">
-                                                    <i>Approve</i>
+                                                    <i class="card-body text-success">Approve</i>
                                                 </button>
                                         </form>
                                         </h6>
@@ -133,7 +132,7 @@
                                             <form action="{{route('crime.reject', $report)}}" class="dropdown-item" method="post">
                                             @csrf
                                                 <button type="submit"  class="btn btn-danger btn">
-                                                    <i>Reject</i>
+                                                    <i class="card-body text-danger">Reject</i>
                                                 </button>
                                             </form>
                                         </h6>
@@ -151,7 +150,6 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    @include('footer')
     <!-- End of Footer -->
 
 </div>

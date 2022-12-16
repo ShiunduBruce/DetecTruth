@@ -1,9 +1,5 @@
-<nav class=" navbar-expand topbar">
-
-         
-
+<nav>
         <div class="container nav__container">
-            
             <a href="{{route('home')}}"><h4>DETECTRUTH</h4></a>
             <ul class="nav_menu">
                 <li><a href="{{route('dashboard')}}">Statistics</a></li>
@@ -17,7 +13,14 @@
                 @if(Auth::user()->isAdmin())
                 <li><a href="{{route('crime.admin')}}" style="color:#69C4EB" ><strong>Admin</strong>  </a></li>
                 @endif
- 
+                <li><a href="#" style="color:#69C4EB" ><strong>{{Auth::user()->name}}</strong>  </a></li>
+                <li class="nav-item">
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button class="btn btn-primary" style="color:#69C4EB"  type="submit"> Logout</button>
+                    </form>
+                </li>
+
                 @endauth
 
                 
@@ -28,29 +31,6 @@
                 <li><a href="statistics.html">Statistics</a></li> 
                 <li><a href="emergency.html">Emergency</a></li>
          <a class="cta" href="#"><button>Log In</button></a> -->   
-        
-
-
-
-
-
-
-
-
-   
-                @auth
-                <li><a href="#" style="color:#69C4EB" ><strong>{{Auth::user()->name}}</strong>  </a></li>
-                <li class="nav-item">
-                    <form action="/logout" method="post">
-                        @csrf
-                        <button class="btn btn-primary" style="color:#69C4EB"  type="submit"> Logout</button>
-                    </form>
-                </li>
-
-                 
-                
-                @endauth
-
             </ul>
          </div>
-        </nav>
+    </nav>  
