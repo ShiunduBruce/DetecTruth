@@ -17,7 +17,7 @@ use App\Http\Controllers\EmergencyContactsController;
 | contains the "web" middleware group. Now create something great!
 |
 
-
+*/
 Route::get('/', function () {
      return view('index');
      
@@ -49,4 +49,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-*/
